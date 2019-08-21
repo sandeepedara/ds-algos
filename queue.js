@@ -18,11 +18,13 @@ Queue.prototype.dequeue = function () {
     if(this._count === 0) {
         return false;
     }
-    var value = this._storage[this._count - 1];
+    var self = this;
+    var value = this._storage[0];
+    Object.keys(this._storage).forEach(function(index) {
+        self._storage[+index] = self._storage[+index + 1];
+    });
     delete this._storage[this._count - 1];
     this._count--;
-
-    //move forward
     return value;
 }
 
