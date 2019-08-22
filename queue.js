@@ -3,7 +3,7 @@
 var Queue = function (capacity) {
     this._count = 0;
     this._storage = {};
-    this._capacity = this.capacity;
+    this._capacity = capacity;
 }
 
 Queue.prototype.enqueue = function (value) {
