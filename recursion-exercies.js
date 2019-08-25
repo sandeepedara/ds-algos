@@ -63,15 +63,16 @@ function recursiveMultiplier(arr, num) {
 }
 
 //recursiveReverse([1,2,3,4,5]);
+
 function recursiveReverse(arr) {
-    let newArray  = [];
-   function reverse(length) {
-        if(length <= 0) {
+    let newArray = [];
+    function recursive(arr) {
+        if(arr.length <= 0) {
             return true;
         }
-        newArray.push(arr[length - 1])
-       return reverse(length - 1);  
-   }
-    reverse(arr.length);
+        newArray.push(arr.pop());
+        return recursive(arr);
+    }
+    recursive(arr);
     return newArray;
 }
